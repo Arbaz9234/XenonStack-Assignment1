@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Function to display manual page
+man_page() {
+    cat << EOF
+INTERNSCTL                       General Commands Manual                      INTERNSCTL
+
+NAME
+       internsctl 
+
+SYNOPSIS
+       internsctl [OPTIONS]
+
+OPTIONS
+       -h, --help    Display this help message
+       -v, --version Display the version of internsctl
+
+AUTHOR
+       Arbaz 
+EOF
+}
+
+# Function to display help message
+help_message() {
+    echo "Usage: internsctl [OPTIONS]"
+    echo "Options:"
+    echo "  -h, --help    Display this help message"
+    echo "  -v, --version Display the version of internsctl"
+}
+
+# Function to display version
+version() {
+    echo "internsctl v0.1.0"
+}
+
+# Main function to handle options
+main() {
+    case "$1" in
+        -h|--help)
+            help_message
+            ;;
+        -v|--version)
+            version
+            ;;
+        *)
+            # If no valid option is given, display the manual page
+            man_page
+            ;;
+    esac
+}
+
+main "$@"
